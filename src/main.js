@@ -12,6 +12,7 @@ Vue.prototype.$axios = request;
 import ElementUI from 'element-ui'    //手动变红
 import './theme/element/index.css'
 Vue.use(ElementUI);
+import store from './store'
 import'./assets/css/live.scss'
 Vue.config.productionTip = false
 
@@ -63,6 +64,7 @@ router.beforeEach((to,from,next)=>{
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

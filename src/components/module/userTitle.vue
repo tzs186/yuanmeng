@@ -22,7 +22,7 @@
 <style scoped lang="scss">
   .user-title-fr{
     width: 98%;
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
     border-bottom: 1px solid #e5e5e5;
     height: 70px;
     span{

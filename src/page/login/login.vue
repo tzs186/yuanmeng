@@ -142,11 +142,14 @@
                             if(res.code==1000){
                                 if (that.checked == true) {
                                     //传入账号名，密码，和保存天数3个参数
-                                    that.setCookie(that.loginData.mobile, that.loginData.password, 2);
+                                    that.setCookie(that.loginData.mobile, that.loginData.password, 7);
                                 } else {
                                     //清空Cookie
                                     that.clearCookie();
                                 }
+                                this.$store.commit("GetUserInfo", res.data.user)
+                                this.$store.commit("getHeadImg", res.data.user.headImg)
+                                this.$store.commit("getNickname", res.data.user.nickname)
                                 that.$message({
                                     message: res.desc,
                                     type: 'success',

@@ -28,18 +28,23 @@
           <img src="../../assets/img/slogan.png" alt="" class="logo2">
         </div>
         <div class="content">
-<!--          <a href="index.html" class="lesson ac active">首页</a>-->
-<!--          <a href="live.html" class="live ac">直播课程</a>-->
-<!--          <a href="lesson.html" class="learn ac">课程中心</a>-->
-<!--          <a href="vacation.html" class="vip ac">暑期系列</a>-->
           <router-link to="/" class="lesson ac active">首页</router-link>
           <router-link to="/live" class="live ac">直播课程</router-link>
           <router-link to="/" class="learn ac">课程中心</router-link>
           <router-link to="/" class="vip ac">暑期系列</router-link>
-          <div class="portrait"></div>
-          <div class="login">
-            <router-link to="login" class="login_btn">登录</router-link>
-            <router-link to="login" class="reg_btn">注册</router-link>
+
+          <div class="portrait" v-if="$store.getters.isLogin">
+            <img :src="$store.getters.headImg" class="portrait-img" alt="">
+            <div class="information">
+              <span class="name">
+                {{$store.getters.nickname}}
+              </span>
+              <router-link to="/portrait" class="portrait-name">完善信息</router-link>
+            </div>
+          </div>
+          <div class="login" v-if="!$store.getters.isLogin">
+            <router-link to="/login" class="login_btn">登录</router-link>
+            <router-link to="/login" class="reg_btn">注册</router-link>
           </div>
         </div>
       </div>
@@ -55,6 +60,13 @@
                 type: String,
                 default: ""
             }
+        },
+        data() {
+            return {
+
+            }
+        },
+        mounted() {
         }
     }
 </script>
@@ -71,15 +83,18 @@
     -ms-user-select: none;
     user-select: none;
   }
+
   a {
     text-decoration: none;
     color: #fff;
   }
+
   .sctop {
     position: fixed;
     z-index: 9999;
     top: 0;
   }
+
   .sctops {
     position: fixed;
     z-index: 9999;
@@ -340,11 +355,14 @@
             -ms-flex-pack: column;
             -webkit-justify-content: column;
             flex-direction: column;
-
+            .name{
+              line-height: inherit;
+              height: 18px;
+            }
             .portrait-name {
               font-size: 12px;
               color: #FF5B1C;
-              display: none;
+              /*display: none;*/
             }
           }
         }
