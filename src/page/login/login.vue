@@ -142,7 +142,7 @@
                             if(res.code==1000){
                                 if (that.checked == true) {
                                     //传入账号名，密码，和保存天数3个参数
-                                    that.setCookie(that.loginData.mobile, that.loginData.password, 7);
+                                    that.setCookie(that.loginData.mobile, that.loginData.password, 2);
                                 } else {
                                     //清空Cookie
                                     that.clearCookie();

@@ -13,7 +13,7 @@
           </div>
           <span class="down"><a href="down.html">客户端下载</a></span>
           <span class="close">
-            <a href="portrait.html">个人中心</a>
+            <router-link to="/portrait" class="lesson ac active">个人中心</router-link>
             <div class="colse_box">
               <span class="index_close"></span>
             </div>
