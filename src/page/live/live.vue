@@ -12,7 +12,7 @@
       </div>
       <div class="clear" v-loading="loading">
         <template v-for="(item,index) in liveData">
-          <router-link :to="{name:'live_detail',params:{id:item.liveRoomId}}" class="live_lesson">
+          <router-link :to="{'path':'live_detail','params':{id:item.liveRoomId}}" class="live_lesson">
             <div class="big_ming">
               <img
                 :src='item.img || item.imgUrl'

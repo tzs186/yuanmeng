@@ -80,7 +80,7 @@
         <div class="detail-bottom">
           <div class="detail-bottom-tab">
             <div class="detail-tab-btn on">课程介绍</div>
-            <div class="detail-tab-btn">课程目录(10)(</div>
+            <div class="detail-tab-btn">课程目录(10)</div>
           </div>
           <div class="detail_content">
             <div class="">

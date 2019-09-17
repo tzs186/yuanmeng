@@ -1,13 +1,13 @@
 <template>
   <div class="user">
-    <heads :openId="opens"></heads>
+    <userHeader  ></userHeader>
     <div class="user-content">
       <breadcrumb></breadcrumb>
       <div class="user-body clear">
         <div class="user-body-link fl">
           <router-link to="/portrait" class="user-body-link-btn">
-            <img src="../../assets/img/LOGO.png" class="userImg" alt="">
-            <p class="userName">123</p>
+            <img :src="$store.getters.headImg" class="userImg" alt="">
+            <p class="userName">{{$store.getters.nickname}}</p>
           </router-link>
           <router-link to="/portrait/Myvip" class="user-body-link-btn">我的VIP</router-link>
           <router-link to="/portrait/amendPwd" class="user-body-link-btn">修改密码</router-link>
@@ -33,13 +33,11 @@
         data() {
             return {
                 opens: 'sd',
-
             }
         },
         mounted() {
 
         },
-
         methods: {},
         components: {
             breadcrumb
@@ -52,13 +50,11 @@
     width: 100%;
     height: 100%;
     background: #fff;
-
     &-content {
       width: 1200px;
       margin: 0 auto;
       min-height: 600px;
       padding: 20px 0;
-
       .user-body {
         .user-body-link {
           display: block;
@@ -81,18 +77,17 @@
               height: 88px;
               border-radius: 50%;
             }
-
             .userName {
               margin: 5px 0;
             }
           }
-
           &-btn:hover, .router-link-exact-active {
             color: #FF5B1C;
           }
         }
         .user-body-con{
           width: 990px;
+          min-height: 620px;
           position: relative;
         }
       }

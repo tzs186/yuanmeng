@@ -3,7 +3,7 @@
     <div class="contact">
       <div class="bg">
         <div class="hezuo">
-          <img src="https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/cooperation.png" alt="" class="img">
+          <img src="../../assets/img/cooperation-w.png" alt="" class="img">
           <span class="font"><a href="javascript:;">合作专区</a></span>
         </div>
         <div class="tel">
@@ -28,25 +28,22 @@
           <img src="../../assets/img/slogan.png" alt="" class="logo2">
         </div>
         <div class="content">
-          <router-link to="/" class="lesson ac active">首页</router-link>
-          <router-link to="/live" class="live ac">直播课程</router-link>
-          <router-link to="/" class="learn ac">课程中心</router-link>
-          <router-link to="/" class="vip ac">暑期系列</router-link>
+          <router-link to="/" class="lesson ac active">我的课程</router-link>
+          <router-link to="/" class="live ac">我的订单</router-link>
+          <router-link to="/" class="learn ac">错题本</router-link>
+          <router-link to="/" class="vip ac">全站通VIP</router-link>
+          <router-link to="/portrait" class="vip ac">个人信息</router-link>
 
-          <div class="portrait" v-if="$store.getters.isLogin">
+          <div class="portrait"  >
             <img :src="$store.getters.headImg" class="portrait-img" alt="">
             <div class="information">
               <span class="name">
                 {{$store.getters.nickname}}
               </span>
-              <router-link to="/portrait" class="portrait-name">完善信息</router-link>
+              <span class="portrait-name">完善信息</span>
             </div>
           </div>
 
-          <div class="login" v-if="!$store.getters.isLogin">
-            <router-link to="/login" class="login_btn">登录</router-link>
-            <router-link to="/login" class="reg_btn">注册</router-link>
-          </div>
         </div>
       </div>
     </div>
@@ -55,20 +52,7 @@
 
 <script>
     export default {
-        name: "haders",
-        props: {
-            openId: {
-                type: String,
-                default: ""
-            }
-        },
-        data() {
-            return {
-
-            }
-        },
-        mounted() {
-        }
+        name: "userHader"
     }
 </script>
 
@@ -103,13 +87,13 @@
   }
 
   .contact a {
-    color: #222;
+    color: #fff;
   }
 
   .contact {
     width: 100%;
     height: 40px;
-    background-color: #fff;
+    background: #313131;
     margin-bottom: 1px;
     color: #fff;
     line-height: 40px;

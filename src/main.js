@@ -23,6 +23,8 @@ Vue.component("foot",foot);
 
 import heads from './components/foter/haders.vue'
 Vue.component("heads",heads);
+import userHeader from './components/foter/userHeader.vue'
+Vue.component("userHeader",userHeader);
 import rtool from './components/foter/index.js'
 Vue.use(rtool);
 import Toast from './components/toast/toast.js'

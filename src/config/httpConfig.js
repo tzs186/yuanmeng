@@ -8,11 +8,9 @@ const http = {}
 
 
 const instance = axios.create({
-  baseURL:process.env.NODE_ENV === 'development' ? 'http://192.168.1.176:8080/api/' : 'http://api.ymgxjy.com/api/',
+  baseURL:process.env.NODE_ENV === 'development' ? 'http://192.168.1.176:8080/api/' : 'http://192.168.1.176:8080/api/',
   timeout: 5000,
   headers: {  'Content-Type':'application/x-www-form-urlencoded' },
-
-
 });
 
 //添加请求拦截器
@@ -28,10 +26,24 @@ instance.interceptors.request.use(function (config) {
 
 //响应拦截器即异常处理
 instance.interceptors.response.use(res=>{
+  if(res && res.data){
+    switch (res.data.code) {
+      case 1026:
+        //err.message = '拒绝访问'
+
+       // sessionStorage.clear();
+        // store.commit('LOGIN_OUT')
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 1000)
+        break
+    }
+  }
+
   return res.data
 },err=>{
   if (err && err.response) {
-    switch (err.response.status) {
+    switch (err.response.code) {
       case 400:
         err.message = '请求出错'
         break
@@ -45,8 +57,9 @@ instance.interceptors.response.use(res=>{
         }, 1000)*/
 
         return
-      case 403:
-        err.message = '拒绝访问'
+      case 1026:
+        //err.message = '拒绝访问'
+        alert("sadsa")
         break
       case 404:
         err.message = '请求错误,未找到该资源'
@@ -89,7 +102,6 @@ http.post = function(url, data, options) {
     instance
       .post(url, data, options)
       .then(response => {
-
         //if (response.code === 1000) {
           resolve(response)
         // } else {
