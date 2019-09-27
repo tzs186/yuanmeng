@@ -11,7 +11,7 @@
             <img src="../../assets/img/phone.png" alt="" class="img">
             <span class="phone">4008-225-125</span>
           </div>
-          <span class="down"><a href="down.html">客户端下载</a></span>
+          <span class="down"><router-link to="/down" class="lesson ac active">客户端下载</router-link></span>
           <span class="close">
             <router-link to="/portrait" class="lesson ac active">个人中心</router-link>
             <div class="colse_box">

@@ -44,7 +44,7 @@
                     "verifyCode": '',
                     "password": ''
                 },
-                mobile: JSON.parse(sessionStorage.getItem('userInfo')).mobile,
+                mobile: this.$store.getters.Mobile,
                 rules: {
                     mobile: [
                         {required: true, message: "请输入新手机号!", trigger: "blur"},
@@ -61,10 +61,36 @@
                     ]
                 }
             }
+
         },
         mounted() {
+
         },
         methods: {
+            submitForm(formName){
+                let that = this;
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        this.$axios.post('user/webUpdateMobile', that.setPwd)
+                            .then(res => {
+                                console.log(res)
+                                if (res.code == 1024) {
+
+                                } else {
+                                    this.$message({
+                                        message: '修改成功' ,
+                                        type: 'success'
+                                    });
+                                }
+                            }).catch(err => {
+                            console.log(err)
+                        })
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
             sendMessage() {
                 let that = this;
                 var phreg = /^1[3-8]\s*[0-9]{9}$/;
@@ -75,8 +101,9 @@
                             message: '手机号码格式错误',
                             type: 'error'
                         });
+                        return false;
                     } else {
-                        var time = 10;
+                        var time = 60;
                         this.$axios.post('verifyCode/send', {'mobile': that.updateTel.mobile, "type": 2})
                             .then(res => {
                                 if (res.code == 1000) {
@@ -92,7 +119,6 @@
                                             that.isOvertime = true;
                                             that.word = "获取短信验证码";
                                             clearInterval(getTime)
-
                                         }
                                     },1000)
                                 } else {
@@ -101,8 +127,6 @@
                                         type: 'error'
                                     });
                                 }
-
-
                             }).catch(err => {
                             console.log(err)
                         })

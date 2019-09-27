@@ -13,7 +13,7 @@
           <router-link to="/portrait/amendPwd" class="user-body-link-btn">修改密码</router-link>
           <router-link to="/portrait/setMobile" class="user-body-link-btn">更换手机</router-link>
           <router-link to="/portrait/getAddress" class="user-body-link-btn">地址管理</router-link>
-          <div class="user-body-link-btn">退出登录</div>
+          <div class="user-body-link-btn" @click="logout">退出登录</div>
         </div>
         <div class="user-body-con fr">
           <router-view></router-view>
@@ -38,7 +38,34 @@
         mounted() {
 
         },
-        methods: {},
+        methods: {
+            logout(){
+                this.$confirm('确定要退出登录？', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                    center: true
+                }).then(() => {
+                    this.$axios.post('user/logout', {'token': sessionStorage.getItem("token")})
+                        .then(res => {
+                            if (res.code == 1000) {
+                                this.$store.commit("setLogout");
+                                this.$router.push('/login')
+                            } else {
+
+                            }
+                        }).catch(err => {
+                        console.log(err)
+                    })
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消'
+                    });
+                });
+
+            },
+        },
         components: {
             breadcrumb
         }

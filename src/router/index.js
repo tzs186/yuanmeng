@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
 
 Vue.use(Router)
 
@@ -62,6 +62,12 @@ export default new Router({
           name: '地址管理',
         },
       ]
+    },
+    {
+      path: '/down',
+      component: resolve => require(['../page/down/down.vue'], resolve),
+      meta: {auth: false, keepAlive: false},
+      name: '客户端下载'
     },
     {
       path: '/login',

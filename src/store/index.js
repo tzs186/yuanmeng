@@ -9,13 +9,15 @@ const store = new Vuex.Store({
     isLogin: sessionStorage.getItem('isLogin'),
     userInfo: sessionStorage.getItem('userInfo'),
     headImg: sessionStorage.getItem('headImg')||"http://ym-video-prod.oss-cn-shenzhen.aliyuncs.com/images/common/personal_icon_head_x.png",
-    nickname: sessionStorage.getItem('nickname')||"小喵"
+    nickname: sessionStorage.getItem('nickname')||"小喵",
+    Mobile:sessionStorage.getItem('Mobile')
   },
   getters: {
     isLogin: (state) => state.isLogin,
     userInfo: (state) => state.userInfo,
     headImg: (state) => state.headImg,
     nickname: (state) => state.nickname,
+    Mobile:(state) => state.Mobile
   },
   mutations: {
     GetUserInfo(state, userInfo) {
@@ -31,6 +33,19 @@ const store = new Vuex.Store({
     getNickname(state, nickname) {
       state.nickname = nickname;
       sessionStorage.setItem('nickname', nickname)
+    },
+    getMobile(state, Mobile) {
+      state.Mobile = Mobile;
+      sessionStorage.setItem('Mobile', Mobile)
+    },
+    setLogout(state){
+      state.userInfo="";
+      state.headImg="";
+      state.nickname="";
+      state.Mobile="";
+      state.isLogin = false;
+      sessionStorage.clear();
+
     }
   },
   actions: {}

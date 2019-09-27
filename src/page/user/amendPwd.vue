@@ -85,7 +85,10 @@
                                 if (res.code == 1024) {
 
                                 } else {
-
+                                    this.$message({
+                                        message: '修改密码成功' ,
+                                        type: 'success'
+                                    });
                                 }
                             }).catch(err => {
                             console.log(err)

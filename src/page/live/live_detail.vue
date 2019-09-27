@@ -351,7 +351,6 @@
           .sign_title {
             height: 38px;
             font-size: 18px;
-
             .title_subject {
               font-size: 12px;
               border-radius: 4px;

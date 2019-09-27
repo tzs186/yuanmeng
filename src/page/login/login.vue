@@ -150,6 +150,7 @@
                                 this.$store.commit("GetUserInfo", res.data.user);
                                 this.$store.commit("getHeadImg", res.data.user.headImg);
                                 this.$store.commit("getNickname", res.data.user.nickname);
+                                this.$store.commit("getMobile", res.data.user.mobile);
                                 that.$message({
                                     message: res.desc,
                                     type: 'success',

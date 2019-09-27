@@ -10,10 +10,10 @@
           <img src="https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/slide_3.png" alt="暑假双师课堂">
         </div>
         <div class="swiper-slide">
-          <img src="https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/slide_4.png" alt="暑假系列直播班">
+          <img src="https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/slide_5.png" alt="暑假系列直播班">
         </div>
         <div class="swiper-slide">
-          <img src="https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/slide_5.png" alt="暑假来这里学习">
+          <img src="https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/slide_4.png" alt="暑假来这里学习">
         </div>
       </div>
       <!-- 如果需要分页器 -->
@@ -252,7 +252,7 @@
 </template>
 <script>
 
-    import Swiper from 'swiper';
+ //   import Swiper from 'swiper';
 
     export default {
         name: "index",
@@ -264,7 +264,7 @@
             }
         },
         mounted() {
-            new Swiper('#swiper-container', {
+           /* new Swiper('#swiper-container', {
                 loop: true, // 循环模式选项
                 // 如果需要分页器
                 pagination: {
@@ -298,14 +298,11 @@
                 scrollbar: {
                     el: '.swiper-scrollbar',
                 },
-            })
+            })*/
         },
         methods: {
             func(){},
-
             getMethods(event) {
-
-
             },
             sadsa() {
                 this.$toast({
@@ -327,6 +324,14 @@
     width: 100%;
     height: 500px;
     position: relative;
+    .swiper-wrapper{
+      .swiper-slide{
+        img{
+          display: block;
+          width: 100%;
+        }
+      }
+    }
   }
   // 轮播
   // one

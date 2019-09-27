@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 
 
-
+import 'babel-polyfill'
+require('es6-promise').polyfill();
+require('es6-promise/auto');
 import request from '@/config/httpConfig'
 Vue.prototype.$axios = request;
 
