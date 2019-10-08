@@ -2,7 +2,8 @@
   <div class="lesson_nav clear">
     <div class="lesson_op">课程类型</div>
     <div class="all_lesson">
-      <div class="all_link"  v-for="(item,index) in Linktitle" :class="index==indexShow?'tba':''" @click="lessonLink(index)">
+      <div class="all_link" v-for="(item,index) in Linktitle" :class="index==indexShow?'tba':''"
+           @click="lessonLink(index)">
         <img class="text" :src="item" alt="">
         <img class="msk" src="../../assets/img/lesson_mask.png" alt="">
         <img class="cho" src="../../assets/img/lesson_cho.png" alt="">
@@ -24,9 +25,10 @@
                 indexShow: 0,
             }
         },
-        methods:{
-            lessonLink(index){
-                this.indexShow=index;
+        methods: {
+            lessonLink(index) {
+                this.indexShow = index;
+                this.$emit("childIndex", index)
             }
         }
     }

@@ -2,7 +2,6 @@
   <div class="filtrate">
     <div class="filtrateList clear">
       <p class="filtrateType">选中年级</p>
-
       <ul class="clear filtrateul">
         <li v-for="(item,index) in grade" @click="gradeClick(index)" :class="gradeIndex==index?'on':''">{{item}}</li>
       </ul>
@@ -13,23 +12,6 @@
         <li v-for="(item,index) in subjects" @click="subjectsClick(index)" :class="subjectsIndex==index?'on':''">
           {{item.name}}
         </li>
-
-      </ul>
-    </div>
-    <div class="filtrateList clear">
-      <p class="filtrateType">教材版本</p>
-      <ul class="clear filtrateul">
-        <li v-for="(item,index) in versions" @click="versionsClick(index,item.value)" :class="versionsIndex==index?'on':''">
-          {{item.name}}
-        </li>
-      </ul>
-    </div>
-    <div class="filtrateList clear">
-      <p class="filtrateType">选中阶段</p>
-      <ul class="clear filtrateul">
-        <li v-for="(item,index) in stage" @click="stageClick(index)" :class="stageIndex==index?'on':''">
-          {{item.typeName}}
-        </li>
       </ul>
     </div>
   </div>
@@ -37,20 +19,13 @@
 
 <script>
     export default {
-        name: "filtratetoll",
-        props:{
-            textbook:{
-                type:Array,
-                default() {
-                    return [];
-                }
-            }
-        },
+        name: "freeFiltra",
         data() {
             return {
-
+                textbook: [],
                 grade: ["小学", "初中", "高中"],
                 gradeIndex: 1,
+
                 subjects: [],//学科
                 subjectsIndex: 0,
 
@@ -62,6 +37,7 @@
             }
         },
         mounted() {
+            this.tollInit();
             this.lessonGrade(1, 0, 0);
         },
         methods: {
@@ -103,45 +79,29 @@
                 this.versions = this.subjects[e].textBookDetailDto;
                 this.lessonGrade(this.gradeIndex, e, this.versions[0].value)
             },
-            //点击版本
-            versionsClick(e,val) {
-                this.versionsIndex = e;
-                this.lessonGrade(this.gradeIndex, this.subjectsIndex, val)
-            },
-            stageClick(){
-                this.stageIndex = e;
+            tollInit() {
+                let that = this;
+                this.$axios.post('dic/pkey', {"pkey": "textbook"})
+                    .then(res => {
+                        that.textbook = res.data;
+                        that.subjects = res.data[1].textBookLevelDto;//学科
+                        this.versions = res.data[1].textBookLevelDto[0].textBookDetailDto;
+                    }).catch(err => {
+                    console.log(err)
+                })
             }
         },
-        computed:{
-
-        },
         watch: {
-            textbook (val) {
-                this.subjects = val[1].textBookLevelDto;//学科
-                this.versions = val[1].textBookLevelDto[0].textBookDetailDto;
-            },
             "subjects": {
                 handler(newValue, oldVlaue) {
-
                 },
                 deep: true
-            },
-            "versions": {
-                handler(newValue, oldVlaue) {
+            }
 
-                },
-                deep: true
-            },
-            "stage": {
-                handler(newValue, oldVlaue) {
-
-                },
-                deep: true
-            },
         }
     }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>

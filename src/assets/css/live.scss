@@ -483,3 +483,56 @@ button {
     transform: scale(1.1)
   }
 }
+
+
+.filtrate {
+  border: 1px solid #eeeeee;
+  margin-bottom: 48px;
+
+  .filtrateList {
+    position: relative;
+
+    .filtrateType {
+      float: left;
+      width: 190px;
+      height: 48px;
+      line-height: 48px;
+      color: #4c4c4c;
+      font-size: 16px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .filtrateul {
+      float: left;
+      width: 1050px;
+      border-bottom: 1px solid #eee;
+      line-height: 48px;
+
+      li {
+        display: inline-block;
+        color: #444;
+        font-size: 14px;
+        margin: 0 20px;
+        text-align: center;
+        height: 26px;
+        line-height: 26px;
+        display: inline-block;
+        padding: 0 12px;
+        cursor: pointer;
+      }
+
+      .on, li:hover {
+        color: #fff;
+        background-color: #FF5B1C;
+        height: 26px;
+        border-radius: 4px;
+        line-height: 26px;
+      }
+    }
+
+    &:last-child .filtrateul {
+      border-bottom: none;
+    }
+  }
+}

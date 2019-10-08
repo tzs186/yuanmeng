@@ -1,10 +1,13 @@
 <template>
   <div style="background: #fff">
-    <heads  ></heads>
+    <heads></heads>
     <sinbenner :imgSrc="imgSrc"></sinbenner>
-    <div class="lessoncon"  >
-      <lesson-link></lesson-link>
-      <filtratetoll></filtratetoll>
+    <div class="lessoncon">
+      <lesson-link @childIndex="lessonLinkIndex"></lesson-link>
+      <filtratetoll :textbook="bookarr" v-show="linkIndex==0"></filtratetoll>
+      <free-filtra v-show="linkIndex==1"></free-filtra>
+      <grade-filtra v-show="linkIndex==2 " :indexs="linkIndex"></grade-filtra>
+      <grade-filtra v-show="linkIndex==3" :indexs="linkIndex"></grade-filtra>
     </div>
     <foot></foot>
   </div>
@@ -15,40 +18,53 @@
     import insidelist from "../../components/module/insideList";
     import lessonLink from "../../components/lessonLink/lessonLink";
     import filtratetoll from "../../components/lessonLink/filtratetoll";
+    import freeFiltra from "../../components/lessonLink/freeFiltra";
+    import gradeFiltra from "../../components/lessonLink/gradeFiltra";
 
     export default {
         name: "lesson",
-        data(){
+        data() {
             return {
                 imgSrc: "https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/live_less.png",
-                insideName: {
-                    name: "选中年级",
-                    data: [
-                        {name: "小学", id: ""},
-                        {name: "初中", id: "0"},
-                        {name: "高中", id: "1"},
-                    ]
-                },
+                linkIndex: 0,
+                bookarr:[]
             }
         },
-        mounted(){
-
+        mounted() {
+            this.tollInit();
         },
-        methods:{
-            getLiveList(){}
+        methods: {
+            getLiveList() {
+            },
+            lessonLinkIndex(event) {
+                this.linkIndex = event;
+            },
+            tollInit() {
+                let that = this;
+                this.$axios.post('dic/pkey', {"pkey": "textbook"})
+                    .then(res => {
+                        that.bookarr = res.data;
+                        //that.subjects = res.data[1].textBookLevelDto;//学科
+                        //this.versions = res.data[1].textBookLevelDto[0].textBookDetailDto;
+                    }).catch(err => {
+                    console.log(err)
+                })
+            }
         },
         components: {
             sinbenner,
             insidelist,
             lessonLink,
-            filtratetoll
+            filtratetoll,
+            freeFiltra,
+            gradeFiltra
 
         }
     }
 </script>
 
 <style scoped lang="scss">
-  .lessoncon{
+  .lessoncon {
     background: #fff;
     padding: 40px 0;
     width: 1280px;
