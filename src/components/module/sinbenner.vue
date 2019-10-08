@@ -20,7 +20,7 @@
   .main_Benner{
     position: relative;
     width: 100%;
-    height: 500px;
+
     img{
       width: 100%;
       max-width: 100%;

@@ -26,6 +26,13 @@ export default new Router({
       name: '直播详情'
     },
     {
+      path: '/lesson',
+      component: resolve => require(['../page/lesson/lesson.vue'], resolve),
+      meta: {auth: false, keepAlive: false},
+      name: '课程中心',
+      children: []
+    },
+    {
       path: '/portrait',
       component: resolve => require(['../page/user/portrait.vue'], resolve),
       meta: {auth: true, keepAlive: false},

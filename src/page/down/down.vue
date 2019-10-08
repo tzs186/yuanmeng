@@ -1,58 +1,55 @@
 <template>
   <div class="">
-  <heads  ></heads>
-  <div class="main">
-    <div class="main_bg_img">
-      <div class="main-fixed-btn">
-        <div class="QRcodeBtn on">
-
-          <span>iPhone版本下载</span>
+    <heads></heads>
+    <div class="main">
+      <div class="main_bg_img">
+        <div class="main-fixed-btn">
+          <div class="QRcodeBtn on">
+            <span>iPhone版本下载</span>
+          </div>
+          <div class="QRcodeBtn">
+            <span>Android版本下载</span>
+          </div>
         </div>
-        <div class="QRcodeBtn">
-
-          <span>Android版本下载</span>
+        <div class="content" style="text-align: center;">
+          <h2>喵想学移动客户端</h2>
+          <h4>高效学习，名师教学</h4>
+          <img src="../../assets/img/qrcode.png" alt="">
+          <p style="margin-top: 20px;font-size:12px;color:#666;">手机扫码，立即下载</p>
         </div>
       </div>
-      <div class="content" style="text-align: center;">
+      <div class="wave-box">
+        <div class="marquee-box marquee-up" id="marquee-box">
+          <div class="marquee">
+            <div class="wave-list-box" id="wave-list-box1">
+              <ul>
+                <li><img height="298" alt="波浪" src="../../assets/img/wave_02.png"></li>
+              </ul>
+            </div>
+            <div class="wave-list-box" id="wave-list-box2">
+              <ul>
+                <li><img height="298" alt="波浪" src="../../assets/img/wave_02.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-box" id="marquee-box3">
+          <div class="marquee">
+            <div class="wave-list-box" id="wave-list-box4">
+              <ul>
+                <li><img height="298" alt="波浪" src="../../assets/img/wave_01.png"></li>
+              </ul>
+            </div>
+            <div class="wave-list-box" id="wave-list-box5">
+              <ul>
+                <li><img height="298" alt="波浪" src="../../assets/img/wave_01.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <h2>喵想学移动客户端</h2>
-        <h4>高效学习，名师教学</h4>
-        <img src="../../assets/img/qrcode.png" alt="">
-        <p style="margin-top: 20px;font-size:12px;color:#666;">手机扫码，立即下载</p>
       </div>
     </div>
-    <div class="wave-box">
-      <div class="marquee-box marquee-up" id="marquee-box">
-        <div class="marquee">
-          <div class="wave-list-box" id="wave-list-box1">
-            <ul>
-              <li><img height="298" alt="波浪" src="../../assets/img/wave_02.png"></li>
-            </ul>
-          </div>
-          <div class="wave-list-box" id="wave-list-box2">
-            <ul>
-              <li><img height="298" alt="波浪" src="../../assets/img/wave_02.png"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="marquee-box" id="marquee-box3">
-        <div class="marquee">
-          <div class="wave-list-box" id="wave-list-box4">
-            <ul>
-              <li><img height="298" alt="波浪" src="../../assets/img/wave_01.png"></li>
-            </ul>
-          </div>
-          <div class="wave-list-box" id="wave-list-box5">
-            <ul>
-              <li><img height="298" alt="波浪" src="../../assets/img/wave_01.png"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
     <div class="">
       <img src="../../assets/img/down-@xs.jpg" alt="">
     </div>
@@ -76,24 +73,29 @@
     height: 827px;
     position: relative;
     border-top: 1px solid #eee;
+
     .main_bg_img {
       .content {
         width: 200px;
         position: absolute;
         top: 295px;
         right: 688px;
-        h2{
+
+        h2 {
           font-weight: bold;
           margin-bottom: 15px;
         }
-        h4{
+
+        h4 {
           margin-bottom: 15px;
         }
+
         img {
           cursor: pointer;
         }
       }
     }
+
     .main-fixed-btn {
       width: 545px;
       margin: 70px auto;
@@ -105,32 +107,39 @@
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      >div {
+
+      > div {
         width: 50%;
         height: 55px;
         line-height: 55px;
         cursor: pointer;
         text-align: center;
         padding-left: 15px;
+
         img {
           vertical-align: -8px;
           margin-right: 10px;
         }
       }
-      >div:first-child{
+
+      > div:first-child {
         background: url(../../assets/img/Shape11.png) no-repeat 53px 10px;
       }
-      >div:last-child{
+
+      > div:last-child {
         background: url(../../assets/img/Shape10.png) no-repeat 53px 10px;
       }
-      .on{
+
+      .on {
         box-shadow: 0px 0px 8px 2px rgba(255, 91, 28, 0.5);
         color: #fff;
       }
-      .on:first-child{
+
+      .on:first-child {
         background: url(../../assets/img/Shape8.png) no-repeat 53px 10px #ff5b1c;
       }
-      .on:last-child{
+
+      .on:last-child {
         background: url(../../assets/img/Shape7.png) no-repeat 53px 10px #ff5b1c;
       }
     }
@@ -148,6 +157,7 @@
     width: 8000%;
     height: 298px;
   }
+
   .wave-list-box {
     float: left;
     animation: move-wave 3s;
@@ -184,6 +194,7 @@
     bottom: 0;
     overflow: hidden;
   }
+
   .wave-list-box {
     animation: move_wave 10s linear infinite;
   }

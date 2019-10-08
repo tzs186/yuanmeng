@@ -39,7 +39,7 @@
     position: relative;
     width: 100%;
     &Com{
-      width: 1090px;
+      width: 1280px;
       margin: 0 auto;
       position: relative;
       height: 80px;

@@ -30,7 +30,7 @@
         <div class="content">
           <router-link to="/" class="lesson ac active">首页</router-link>
           <router-link to="/live" class="live ac">直播课程</router-link>
-          <router-link to="/" class="learn ac">课程中心</router-link>
+          <router-link to="/lesson" class="learn ac">课程中心</router-link>
           <router-link to="/" class="vip ac">暑期系列</router-link>
 
           <div class="portrait" v-if="$store.getters.isLogin">
@@ -499,11 +499,9 @@
           display: block;
           margin: 5px auto;
         }
-
         span {
           color: #333;
         }
-
       }
 
       li:hover span {
@@ -511,9 +509,11 @@
       }
     }
   }
+  .router-link-exact-active{color: #FF5B1C!important;}
 
   @media screen and (width: 1200px) {
 
   }
+
 
 </style>
