@@ -108,7 +108,7 @@
                 this.versionsIndex = e;
                 this.lessonGrade(this.gradeIndex, this.subjectsIndex, val)
             },
-            stageClick(){
+            stageClick(e){
                 this.stageIndex = e;
             }
         },

@@ -61,6 +61,7 @@
       </div>
     </div>
     <foot></foot>
+
   </div>
 </template>
 
@@ -95,20 +96,20 @@
         methods: {
             getLiveList(fee, nub) {
                 let that = this;
-                that.loading=true;
+                that.loading = true;
                 if (fee == "1") {
                     let token = window.sessionStorage.getItem("token");
                     if (token == null || token == "" || token == undefined) {
-                        setTimeout(()=>{
-                            that.loading=false;
+                        setTimeout(() => {
+                            that.loading = false;
                             that.$router.push('/login');
-                        },1000)
+                        }, 1000)
                     } else {
                         this.$axios.post('liveRoom/w', {"token": token})
                             .then(res => {
-                                setTimeout(()=>{
-                                    that.loading=false;
-                                },1000)
+                                setTimeout(() => {
+                                    that.loading = false;
+                                }, 1000)
                                 if (res.code == 1026) {
                                     that.$message.error(res.desc);
                                     window.localStorage.removeItem("token");
@@ -124,9 +125,9 @@
                 } else {
                     this.$axios.post('liveRoom/l', {"fee": fee, "pageSize": nub})
                         .then(res => {
-                            setTimeout(()=>{
-                                that.loading=false;
-                            },1000)
+                            setTimeout(() => {
+                                that.loading = false;
+                            }, 1000)
 
                             that.liveData = res.data.data;
                             that.liveLength = res.data.data.length;

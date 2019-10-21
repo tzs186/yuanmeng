@@ -1,0 +1,2 @@
+webpackJsonp([0],{"3+Wo":function(t,e,s){"use strict";var i={name:"userTitle",data:function(){return{}},props:{title:{type:String,default:""}}},a={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"user-title-fr"},[e("span",{staticClass:"title_text"},[this._v(this._s(this.title))]),this._v(" "),this._t("default")],2)},staticRenderFns:[]};var n=s("VU/8")(i,a,!1,function(t){s("Syfa")},"data-v-f998ecec",null);e.a=n.exports},Syfa:function(t,e){}});
+//# sourceMappingURL=0.8885066f4790b6988305.js.map

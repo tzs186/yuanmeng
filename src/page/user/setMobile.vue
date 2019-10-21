@@ -71,7 +71,7 @@
                 let that = this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this.$axios.post('user/webUpdateMobile', that.setPwd)
+                        this.$axios.post('user/webUpdateMobile', that.updateTel)
                             .then(res => {
                                 console.log(res)
                                 if (res.code == 1024) {

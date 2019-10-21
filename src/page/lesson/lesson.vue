@@ -6,8 +6,8 @@
       <lesson-link @childIndex="lessonLinkIndex"></lesson-link>
       <filtratetoll :textbook="bookarr" v-show="linkIndex==0"></filtratetoll>
       <free-filtra v-show="linkIndex==1"></free-filtra>
-      <grade-filtra v-show="linkIndex==2 " :indexs="linkIndex"></grade-filtra>
-      <grade-filtra v-show="linkIndex==3" :indexs="linkIndex"></grade-filtra>
+      <grade-filtra v-show="linkIndex==2 " :indexs="1"></grade-filtra>
+      <grade-filtra v-show="linkIndex==3" :indexs="2"></grade-filtra>
     </div>
     <foot></foot>
   </div>
@@ -27,7 +27,7 @@
             return {
                 imgSrc: "https://mxx-pro.oss-cn-shenzhen.aliyuncs.com/image/live_less.png",
                 linkIndex: 0,
-                bookarr:[]
+                bookarr: []
             }
         },
         mounted() {
@@ -44,8 +44,6 @@
                 this.$axios.post('dic/pkey', {"pkey": "textbook"})
                     .then(res => {
                         that.bookarr = res.data;
-                        //that.subjects = res.data[1].textBookLevelDto;//学科
-                        //this.versions = res.data[1].textBookLevelDto[0].textBookDetailDto;
                     }).catch(err => {
                     console.log(err)
                 })
@@ -58,7 +56,6 @@
             filtratetoll,
             freeFiltra,
             gradeFiltra
-
         }
     }
 </script>
